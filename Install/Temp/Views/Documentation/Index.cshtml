@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Documentation";
+}
+
+<div class="tile-group first six-wide">
+				<h2>System Documentation</h2>
+            <iframe src="../../Content/Documentation/index.html" class="documentationIframe"></iframe>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        var documentationIframeHeight = $(window).height() - 450;
+        $('.documentationIframe').css('height', documentationIframeHeight + 'px');
+    </script>
+}

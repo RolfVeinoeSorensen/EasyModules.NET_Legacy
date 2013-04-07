@@ -1,0 +1,30 @@
+/**
+ * @mainpage
+ * 
+ * This is the API documentation for EasyModules.NET code.
+ *
+ * <h3>What is EasyModules.NET?</h3>
+ *
+ * <div style="width:30em;">
+ * <p>EasyModules.NET is a Microsoft .NET MVC based solution that I use for this website.</p>
+ * </div>
+ *
+ * <div style="width:30em; padding:0.5em 0 0 0">
+ * <p>
+ * EasyModules.NET includes full modularity using ninject.</p>
+ * </div>
+ *
+ * <h3>More Information</h3>
+ *
+ * Use this on post build to automate generation of documentation
+ * call "$(SolutionDir)..\Documentation\doxygen.exe" "$(SolutionDir)..\Documentation\settings.doxy"
+ * xcopy "$(SolutionDir)..\Documentation\html" "..\Content\Documentation" /s /i /y
+ * <div style="width:30em;">
+ * <p>For more information please read through this documentation..</p>
+ * </div>
+ *
+ * <a style="font-family: 'lucida console', courier; font-size:1.15em; font-weight:bold; margin:2em 1em 2em
+ 1em;" href="http://EasyModules.NET/">http://EasyModules.NET/</a>
+ *
+ */
+

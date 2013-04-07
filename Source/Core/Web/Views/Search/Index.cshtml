@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="tile-group four-wide">
+    <h2>Search</h2>
+    <form>
+        <div class="float-left"><input class="searchfield" id="searchfield" name="searchfield" type="search" placeholder=Search... results=5 /></div>
+        <div class="searchdelete"><span class="searchx">x</span></div>
+        <input class="searchsubmit" name="searchsubmit" type="submit" value="Search" />
+        <div class="clear">
+            <span>Drag to reorder the search importance for the different modules</span>
+            <ul id="sortable">
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 1</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 2</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 3</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 4</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 5</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 6</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Module 7</li>
+            </ul>
+        </div> 
+    </form>
+</div>
+<div class="tile-group three-wide">
+    <h2>verb /sərCH/</h2>
+    <p class="smallfontsize">searched, past participle; searched, past tense; searches, 3rd person singular present; searching, present participle</p>
+    <ul class="metro-list">
+        <li>Try to find something by looking or otherwise seeking carefully and thoroughly
+            <ul class="simple-list oblique">
+                <li>I searched among the rocks, but there was nothing</li>
+                <li>Daniel is then able to search out the most advantageous mortgage</li>
+                <li>Hugh will be searching for the truth</li>
+            </ul>
+        </li>
+        <li>Examine (a place, vehicle, or person) thoroughly in order to find something or someone
+            <ul class="simple-list oblique">
+                <li>she searched the house from top to bottom</li>
+                <li>the guards searched him for weapons</li>
+            </ul>
+        </li>
+        <li>Look for information or an item of interest in (a computer network or database) by keying words or other characters into a search engine
+            <ul class="simple-list">
+                <li>I must search the Internet for one of his pictures</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tile-group three-wide">
+    <h2>noun /sərCH/</h2>
+    <p class="smallfontsize">searches, plural</p>
+    <ul class="metro-list">
+        <li>An act of searching for someone or something
+            <ul class="simple-list">
+                <li>the police carried out a thorough search of the premises</li>
+                <li>he plans to go to the Himalayas in search of a yeti</li>
+            </ul>
+        </li>
+        <li>An act of searching a computer database or network
+            <ul class="simple-list">
+                <li>time-consuming searches of the Internet</li>
+            </ul>
+        </li>
+        <li>The systematic retrieval of information, or the facility for this
+        </li>
+        <li>An investigation of public records to find if a property is subject to any liabilities or encumbrances
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#searchfield").focus();
+        // if text input field value is not empty show the "X" button
+        $("#searchfield").keyup(function () {
+            $("#searchx").fadeIn();
+            if ($.trim($("#searchfield").val()) == "") {
+                $("#searchx").fadeOut();
+            }
+        });
+        // on click of "X", delete input field value and hide "X"
+        $("#searchx").click(function () {
+            $("#searchfield").val("");
+            $(this).hide();
+        });
+    });
+</script>
+  <script>
+      $(function () {
+          $("#sortable").sortable();
+          $("#sortable").disableSelection();
+      });
+  </script>

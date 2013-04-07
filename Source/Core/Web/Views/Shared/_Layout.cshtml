@@ -1,0 +1,85 @@
+﻿@using System.Web.Optimization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/less")
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/ko")
+    @Scripts.Render("~/bundles/metrojs")
+</head>
+<body class="desktop dark home">
+    <header>
+        <div class="site-title"><a href="/">EasyModules.NET</a></div>
+    </header>
+    <section class="main-content panorama clear-fix">
+        <div class="content-wrapper tiles blue">
+            @RenderBody()
+        </div>
+    </section>
+    <footer class="appbar">
+        <ul id="menu" class="appbar-buttons">
+            <li>
+                <a href='@Url.Action("Index", "Home")' class="home">
+                    <img src='@Url.Content("~/Styles/images/1pixel.gif")' alt="home" />
+                <span class="charm-title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index", "Search")' class="search">
+                    <img src='@Url.Content("~/Styles/images/1pixel.gif")' alt="Search" />
+                    <span class="charm-title">Search</span>
+                </a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index", "Documentation")' class="qmark">
+                    <img src='@Url.Content("~/Styles/images/1pixel.gif")' alt="Documentation" />
+                <span class="charm-title">Documentation</span>
+                    </a>
+            </li>
+            <li>
+                <a href='@Url.Action("Index", "Downloads")' class="down">
+                    <img src='@Url.Content("~/Styles/images/1pixel.gif")' alt="Downloads" />
+                <span class="charm-title">Downloads</span>
+                    </a>
+            </li>
+        </ul>
+        <a class="etc">&bull;&bull;&bull;</a>
+        <ul class="theme-options clear">
+        </ul>
+        <ul class="base-theme-options clear">
+        </ul>
+    </footer>
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquerymousewheel")
+    @Scripts.Render("~/bundles/global")
+    <script type="text/javascript">
+        var metroJs,
+            appBar;
+        // remove the default theme set for noscript and apply user theme
+        $(document).ready(function () {
+            $("body,.tiles").removeClass("dark blue");
+            metroJs = jQuery.fn.metrojs;
+            metroJs.theme.loadDefaultTheme();
+            var doBind = (typeof (window.bindAppBarKeyboard) === "undefined" || window.bindAppBarKeyboard);
+            // create the app bar
+            appBar = $(".appbar").applicationBar({
+                applyTheme: false, // apply theme example below
+                preloadAltBaseTheme: true, // load both sets of images so there isn't a flicker when base theme is changed
+                metroLightUrl: '/images/metroIcons_light.jpg',
+                metroDarkUrl: '/images/metroIcons.jpg',
+                bindKeyboard: doBind // bind the keyboard unless specified in an included script
+            });
+            // add the accents and base colors to the appbar
+            metroJs.theme.appendAccentColors();
+            metroJs.theme.appendBaseThemes();
+        });
+    </script>
+</body>
+</html>

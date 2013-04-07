@@ -1,0 +1,208 @@
+﻿/* Begin site styles*/
+#body
+{
+    clear:both;
+    overflow-x:hidden;
+}
+a, a:visited {
+color: #fff;
+text-decoration: none;
+}
+.light a, .light a:visited
+{
+    color:#000;
+}
+
+.dark {
+background-color: #000;
+color: #fff;
+}
+
+header {
+position: relative;
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+.site-title {
+	/* float: left; */
+	/* margin: -60px auto 0 40px; */
+	-moz-transition: font-size 1.4em;
+	-webkit-transition: font-size 1.4em;
+	-o-transition: font-size 1.4em;
+	transition: font-size 1.4em;
+}
+
+.site-title a, .site-title a:visited {
+font-size: 8em;
+text-decoration: none;
+-moz-transition: font-size .3s;
+-webkit-transition: font-size .3s;
+-o-transition: font-size .3s;
+transition: font-size .3s;
+}
+
+.content-wrapper
+{    
+    overflow:auto;
+    position:relative;
+    margin:0 0 0 30px;
+    padding-bottom:60px;
+    /* calculating the appropriate width in script*/
+    width:2200px;
+}
+    
+.panorama
+{
+    padding:0 0 60px 0;
+    position:relative;   
+    /* we set to hidden in script if the browser is not touch enabled */
+    overflow:auto;
+    overflow-x:scroll;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-touch-action: manipulation;
+    -ms-scroll-chaining:none;
+    width:100%;
+}
+
+.clear { clear:both; }
+.clear-fix::after {
+	height: 0px; clear: both; display: block; visibility: hidden; content: ".";
+}
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+.tile-group {
+	float: left;
+	margin-left: 30px;
+}
+
+.tile-group.first {
+	margin-left: 10px;
+}
+
+/* login
+----------------------------------------------------------*/
+#login {
+    display: block;
+    font-size: .85em;
+    margin: 0 0 10px;
+    text-align: right;
+	float: right;
+}
+
+    #login a {
+        margin-left: 10px;
+        margin-right: 3px;
+        padding: 2px 3px;
+        text-decoration: none;
+    }
+
+    #login a.username {
+        background: none;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    #login ul {
+        margin: 0;
+    }
+
+    #login li {
+        display: inline;
+        list-style: none;
+    }
+
+/* login page */
+#loginForm {
+    border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 55%;
+}
+
+    #loginForm .validation-error {
+        display: block;
+        margin-left: 15px;
+    }
+
+    #loginForm .validation-summary-errors ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #loginForm .validation-summary-errors li {
+        display: inline;
+        list-style: none;
+        margin: 0;
+    }
+
+    #loginForm input {
+        width: 250px;
+    }
+
+    #loginForm input[type="checkbox"],
+    #loginForm input[type="submit"],
+    #loginForm input[type="button"],
+    #loginForm button {
+        width: auto;
+    }
+
+#socialLoginForm {
+    margin-left: 40px;
+    float: left;
+    width: 40%;
+}
+
+    #socialLoginForm h2 {
+        margin-bottom:  5px;
+    }
+
+#socialLoginList button {
+    margin-bottom: 12px;
+}
+
+#logoutForm {
+    display: inline;
+}
+
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+}.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a) );
+	background:-moz-linear-gradient( center top, #5cb811 5%, #77d42a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a');
+	background-color:#5cb811;
+}.button:active {
+	position:relative;
+	top:1px;
+	}
+
+.documentationIframe{
+	width: 920px;
+	border: 0px;
+	background-color: @black;
+}
+

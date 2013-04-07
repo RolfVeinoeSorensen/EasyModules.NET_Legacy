@@ -1,0 +1,37 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Blog";
+}
+<div class="tile-group first three-wide">
+<h2 data-bind="text: title">Blog</h2>
+<p>@ViewBag.Message</p>
+    <title data-bind="text: shortDesc">Title</title>
+    <div data-bind="text: content"></div>
+    <span data-bind="text: tags"></span>
+</div>
+<div class="tile-group two-wide">
+    <a href="/Blog"><h2>@ViewBag.Title</h2></a> 
+    <div class="tile-strip two-wide">
+        <div class="green live-tile">
+            <div>
+                
+            </div>
+        </div>
+        <div class="live-tile half-tall">
+            <div>
+                
+            </div>
+        </div>
+        <div class="live-tile half-tall">
+            <div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="live-tile two-wide">
+        <div>
+            
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/EasyModules.NET.Modules.Blog.Web/js")
