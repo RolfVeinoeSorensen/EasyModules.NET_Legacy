@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
@@ -13,6 +14,7 @@ namespace EasyModules.NET.Installer
     public partial class Developer : Form
     {
         private RTFBuilderbase ProgressText { get; set; }
+
         public Developer()
         {
             InitializeComponent();
@@ -76,6 +78,7 @@ namespace EasyModules.NET.Installer
         private void BackgroundWorkerDevDoWork(object sender, DoWorkEventArgs e)
         {
             var backgroundWorker = sender as BackgroundWorker;
+            var now = string.Format("{0:yyyyMMddHHmmss}", System.DateTime.Now);
             if(backgroundWorker==null) return;
             //Get projectpath
             var projectPath = labelProjectPath.Text;
@@ -88,11 +91,12 @@ namespace EasyModules.NET.Installer
             }
             AppendToDeploymentLog("Found projectfolder", false);
             //Set folder variables
+            var installFolder = new DirectoryInfo(projectPath + @"\Install");
             var coreFolder = new DirectoryInfo(projectPath + @"\Install\Core");
             var moduleFolder = new DirectoryInfo(projectPath + @"\Install\Modules");
-            var tempWorkFolder = new DirectoryInfo(projectPath + @"\Install\Temp");
-            var tempWorkBinFolder = new DirectoryInfo(projectPath + @"\Install\Temp\bin");
-            var tempWorkModulesFolder = new DirectoryInfo(projectPath + @"\Install\Temp\Modules");
+            var tempWorkFolder = new DirectoryInfo(projectPath + @"\Install\" + now + "_Temp");
+            var tempWorkBinFolder = new DirectoryInfo(tempWorkFolder + @"\bin");
+            var tempWorkModulesFolder = new DirectoryInfo(tempWorkFolder + @"\Modules");
             //Create workfolder if it does not exists
             if (tempWorkFolder.Exists)
             {
@@ -182,7 +186,7 @@ namespace EasyModules.NET.Installer
                         AppendToDeploymentLog("Error trying to read FullWebSystemName from the module.config for module " + moduleDirectory.Name + "!" + Environment.NewLine + "The module " + moduleDirectory.Name + "was not added to the published site", true);
                     }
                     //We go so far so everything with the module must have gone well
-                    var moduleProgress = 90/countDir*countCurrentDir;
+                    var moduleProgress = 80/countDir*countCurrentDir;
                     backgroundWorker.ReportProgress(moduleProgress);
                     AppendToDeploymentLog("Finished copy from module " + moduleDirectory.Name, false);
                     countCurrentDir = countCurrentDir + 1;
@@ -192,6 +196,19 @@ namespace EasyModules.NET.Installer
                     AppendToDeploymentLog("Error trying to read the module.config for module " + moduleDirectory.Name + "!" + Environment.NewLine + "The module " + moduleDirectory.Name + "was not added to the published site", true);
                 }
             }
+
+            //Zip the release
+            string zipPath = installFolder.FullName + "\\" + now + @"_InstallPackage.zip";
+
+            ZipFile.CreateFromDirectory(tempWorkFolder.FullName, zipPath);
+            AppendToDeploymentLog("Zipped the files to: " +zipPath,false);
+
+            //clear the workfolder
+            if (tempWorkFolder.Exists)
+            {
+                ClearFolder(tempWorkFolder);
+            }
+
             //We got this far so everything went well
             backgroundWorker.ReportProgress(100);
             AppendToDeploymentLog("Finshed creating deployment packages", false);
