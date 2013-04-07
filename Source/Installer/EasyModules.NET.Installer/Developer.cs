@@ -201,12 +201,15 @@ namespace EasyModules.NET.Installer
             string zipPath = installFolder.FullName + "\\" + now + @"_InstallPackage.zip";
 
             ZipFile.CreateFromDirectory(tempWorkFolder.FullName, zipPath);
-            AppendToDeploymentLog("Zipped the files to: " +zipPath,false);
+            AppendToDeploymentLog("Zipped the files to: " + zipPath,false);
 
             //clear the workfolder
-            if (tempWorkFolder.Exists)
+            var refreshedTempWorkFolder = new DirectoryInfo(tempWorkFolder.FullName);
+            if (refreshedTempWorkFolder.Exists)
             {
-                ClearFolder(tempWorkFolder);
+                ClearFolder(refreshedTempWorkFolder);
+                var clearedTempWorkFolder = new DirectoryInfo(tempWorkFolder.FullName);
+                clearedTempWorkFolder.Delete();
             }
 
             //We got this far so everything went well

@@ -2,6 +2,11 @@ EasyModules.NET
 =========
 MVC 4 Based CMS
 
+IMPORTANT!
+-
+  - Do use this as inspiration
+  - Do NOT use this as a production CMS. This system is only in alpha version. Follow the progress on website.
+
 Features:
 
   - Ninject based modularity
