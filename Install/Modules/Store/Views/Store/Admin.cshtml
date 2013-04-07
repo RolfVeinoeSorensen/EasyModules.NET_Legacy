@@ -1,0 +1,50 @@
+﻿@using System.Web.Optimization
+@model EasyModules.NET.Modules.Store.Web.Models.Product
+@{
+    ViewBag.Title = "Admin";
+}
+    <div class="tile-group two-wide">
+    <ul id="update-products" data-bind="foreach: products">
+        <li>
+            <div>
+                <div class="item">Product ID</div> <span data-bind="text: $data.Id"></span>
+            </div>
+            <div>
+                <div class="item">Name</div> 
+                <input type="text" data-bind="value: $data.Name"/>
+            </div> 
+            <div>
+                <div class="item">Price ($)</div> 
+                <input type="text" data-bind="value: $data.Price"/>
+            </div>
+            <div>
+                <div class="item">Actual Cost ($)</div> 
+                <input type="text" data-bind="value: $data.ActualCost"/>
+            </div>
+            <div>
+                <input type="button" value="Update" data-bind="click: $root.update"/>
+                <input type="button" value="Delete Item" data-bind="click: $root.remove"/>
+            </div>
+        </li>
+    </ul>
+    </div>
+
+    <div class="tile-group two-wide">
+    <h2>Add New Product</h2>
+    <form id="addProduct" data-bind="submit: create">
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Contact</legend>
+            @Html.EditorForModel()
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    </form>
+    </div>
+@Scripts.Render("~/bundles/EasyModules.NET.Modules.Store.Web/js")
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        ko.applyBindings(new ProductsViewModel());
+    });
+</script>

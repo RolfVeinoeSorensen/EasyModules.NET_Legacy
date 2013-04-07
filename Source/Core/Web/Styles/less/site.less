@@ -199,6 +199,30 @@ transition: font-size .3s;
 	position:relative;
 	top:1px;
 	}
+    
+	input[type="submit"],
+    input[type="button"],
+    button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811) );
+	background:-moz-linear-gradient( center top, #77d42a 5%, #5cb811 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811');
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	color:#306108;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #aade7c;
+    }
+
 
 .documentationIframe{
 	width: 920px;
@@ -206,3 +230,55 @@ transition: font-size .3s;
 	background-color: @black;
 }
 
+/* This Section belongs in Store Module */
+li {
+    list-style-type: none;
+}
+        
+#products li {
+    width: 300px;
+    background-color: #aaf;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff0;
+    margin: 0 0 5px 0;
+    padding: 0 5px 0 5px;
+}
+        
+.price  {
+    float: right;
+    color: #c00;
+    font-size: 0.75em;
+}
+        
+.details thead td {
+    background-color: #CCCCCC;
+    color: #333333;
+}
+
+.details td {
+        padding: 6px;
+}
+        
+.details td.qty {
+        text-align: center;
+}       
+        
+#cart a {
+        color: Blue;
+        font-size: .75em;
+} 
+        
+#update-products li { 
+    padding: 5px; 
+    color: #666;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: #666;
+}
+
+#update-products li .item {
+        width: 120px;
+        display: inline-block;
+        text-align: right;
+}  

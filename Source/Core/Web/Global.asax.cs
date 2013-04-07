@@ -29,7 +29,7 @@ namespace EasyModules.NET.Core.Web
             //RewriteRoutesForTesting(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
+            AuthConfig.Initialize();
         }
 
     }

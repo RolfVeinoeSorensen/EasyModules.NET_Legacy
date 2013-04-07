@@ -10,13 +10,15 @@
     @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/ko")
     @Scripts.Render("~/bundles/metrojs")
 </head>
 <body class="desktop dark home">
     <header>
-        <div class="site-title"><a href="/">EasyModules.NET</a></div>
+        <div class="site-title" style="float: left"><a href="/">EasyModules.NET</a></div>
+        <div style="float: right">@Html.Partial("_LoginPartial")</div>
     </header>
     <section class="main-content panorama clear-fix">
         <div class="content-wrapper tiles blue">

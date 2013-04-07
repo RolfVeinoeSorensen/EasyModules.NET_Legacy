@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using System.Web.Security;
 using EasyModules.NET.Core.Web.Models;
 using WebMatrix.WebData;
 
@@ -39,6 +40,12 @@ namespace EasyModules.NET.Core.Web.Filters
                     }
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    const string adminRole = "Administrator";
+
+                    if (!Roles.RoleExists(adminRole))
+                    {
+                        Roles.CreateRole(adminRole);
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -133,6 +133,7 @@
     <Content Include="module.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Modules\EasyModules.NET.Modules.Blog.Web\Scripts\Module\placeholder.placeholder" />
     <None Include="Properties\PublishProfiles\Filesystem.pubxml" />
     <None Include="Modules\EasyModules.NET.Modules.Blog.Web\Scripts\Libraries\jquery-1.9.1.intellisense.js" />
     <Content Include="Modules\EasyModules.NET.Modules.Blog.Web\Scripts\Libraries\jquery-1.9.1.js" />
@@ -168,14 +169,6 @@
       <Project>{3715076e-a0bf-4eed-a733-e73179fa8201}</Project>
       <Name>Web %28Core\Web%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{375e8183-78d4-4802-9047-fab55a924eda}</Project>
-      <Name>Model %28Modules\Blog\Model%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Service\Service.csproj">
-      <Project>{440cd0a0-1219-415e-ac8c-03bae0c15961}</Project>
-      <Name>Service %28Modules\Blog\Service%29</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\Index.cshtml" />
@@ -191,7 +184,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
