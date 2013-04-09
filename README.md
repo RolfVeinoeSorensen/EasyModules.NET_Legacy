@@ -66,3 +66,6 @@ http://www.squarewidget.com/pluggable-architecture-in-asp.net-mvc-4
 Metro JS Template
 Based on the works of Drew Greenwell
 http://drewgreenwell.com/projects/metrojs
+
+Simple Store with MVC and Knockout.js
+http://www.asp.net/web-api/overview/creating-web-apis/using-web-api-with-entity-framework/using-web-api-with-entity-framework,-part-1
